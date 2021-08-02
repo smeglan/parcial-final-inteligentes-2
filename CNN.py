@@ -15,9 +15,9 @@ channels = 1
 batch_size = 5
 inputs = keras.Input(shape=(height, width, 3))
 train_data = keras.preprocessing.image_dataset_from_directory(
-    train_path, labels="inferred", label_mode="categorical", image_size=(height, width))
-test_data = keras.preprocessing.image_dataset_from_directory(
-    test_path, labels="inferred", label_mode="categorical", image_size=(height, width))
+    train_path, labels="inferred", label_mode="int", image_size=(height, width))
+# test_data = keras.preprocessing.image_dataset_from_directory(
+#    test_path, labels="inferred", label_mode="int", image_size=(height, width))
 
 print("-----------model1----------")
 
@@ -92,14 +92,13 @@ model3.compile(
     optimizer='adam',
     metrics=['accuracy', tf.keras.metrics.Recall()],
 )
-model3.fit(
-    train_data,
-    epochs=epochs,
-    validation_data=test_data
-)
-model3.summary()
+# model3.fit(
+#    train_data,
+#    epochs=epochs,
+#    validation_data=test_data
+# )
+# model3.summary()
 # Best 0.95
-
 
 def kfoldValidator(model, trainData):
     for images, labels in trainData.take(1):
@@ -115,10 +114,8 @@ def kfoldValidator(model, trainData):
             testY = tf.keras.utils.to_categorical(
                 testY, num_classes=10, dtype='float32'
             )
-            model.fit(tf.stack(trainX), trainY,
-                      validation_data=(testX, testY), epochs=22)
-
-
+            model.fit(tf.stack(trainX), trainY, validation_data=(testX, testY), epochs=22)
+            
 print("model1")
 kfoldValidator(model1, train_data)
 print("model2")
