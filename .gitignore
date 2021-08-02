@@ -1,5 +1,3 @@
-# python
-#
 .venv/
 best_model.h5
-raw_set
+raw_set/
