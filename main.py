@@ -3,6 +3,7 @@ from tensorflow import keras
 import cv2 as cv
 import numpy as np
 import tkinter as tk
+from keras.preprocessing import image
 from tkinter.filedialog import askopenfilename
 # Recrea exactamente el mismo modelo solo desde el archivo
 
@@ -22,6 +23,8 @@ def createCrop(image, approx):
     (bottomy, bottomx) = (np.max(y), np.max(x))
     out = image[topy:bottomy+1, topx:bottomx+1]
     out = cv.resize(out, (180, 180))
+    out = cv.cvtColor(out, cv.COLOR_BGR2GRAY)
+    out = cv.cvtColor(out, cv.COLOR_GRAY2BGR)
     return out
 
 
@@ -52,7 +55,8 @@ def splitImage(image):
     return images
 
 
-def addClasses(class1, class2):
+def resultAdd(class1, class2):
+    print(class1,class2)
     return class1+class2
 
 
@@ -71,22 +75,24 @@ while run:
     #images[1] = np.reshape(images[0], (180, 180, 3))
     #images[0] = np.expand_dims(images[0], axis=0)
     #images[1] = np.expand_dims(images[1], axis=0)
-    images[0] = images[0].flatten()
-    images[0] = images[0]/255
-    images[1] = images[1].flatten()
-    images[1] = images[1]/255
-    images = np.array(images)
+    #images[0] = images[0][...,::-1].astype(np.float32) / 255.0
+    images[0] = np.reshape(images[0], (1,180, 180, 3))
+    images[1] = np.reshape(images[1], (1,180, 180, 3))
     cv.destroyAllWindows()
     # predict the result
-    class1 = model.predict(x=images)
-    print(class1)
-    #print("Resultado: "+class1 + " + " + class2 +
-    #      " = " + addClasses(class1+class2))
-    entry = ""
-    while(entry.lower() != "y" and entry.lower() != "yes" and entry.lower() != "n" and entry.lower() != "no"):
-        entry = input("¿Desea ingresar otra imagen? [Y/N]")
-        print(entry)
-        if entry.lower() == "y" and entry.lower() == "yes":
-            run = True
-        else:
-            run = False
+    predict1 = model.predict(images[0])
+    print(predict1)
+    category1 = np.argmax(predict1, axis=1)
+    predict2 = model.predict(images[1])
+    print(predict2)
+    category2 = np.argmax(predict2, axis=1)
+    total = int(category1)+int(category2)
+    print("La suma es ", total)
+    #entry = ""
+    #while(entry.lower() != "y" and entry.lower() != "yes" and entry.lower() != "n" and entry.lower() != "no"):
+    #    entry = input("¿Desea ingresar otra imagen? [Y/N]")
+    #    print(entry)
+    #    if entry.lower() == "y" and entry.lower() == "yes":
+    #        run = True
+    #    else:
+    #        run = False
