@@ -6,5 +6,5 @@
 <p>El programa que implementa la red neuronal esta en el<a href='./main.py'>link</a></p>
 <br>
 <h2>Video de youtube</h2>
-[![alt video](https://youtu.be/EtUNMJWU9LQ)]
+![alt video](https://youtu.be/EtUNMJWU9LQ)
 <p>disponible.</p>
