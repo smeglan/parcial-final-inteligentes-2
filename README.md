@@ -5,4 +5,6 @@
 <p>El la contrucción de la red neuronal se encuentra en el <a href='./CNN.py'>link</a></p>
 <p>El programa que implementa la red neuronal esta en el<a href='./main.py'>link</a></p>
 <br>
-<p>El video esta procesandose...</p>
+<h2>Video de youtube</h2>
+[![alt video](https://youtu.be/EtUNMJWU9LQ)]
+<p>disponible.</p>
