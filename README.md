@@ -7,4 +7,4 @@
 <br>
 <h2>Video de youtube</h2>
 <img src="https://www.uncommunitymanager.es/wp-content/uploads/seo_google_youtube.jpg" href="https://www.youtube.com/watch?v=EtUNMJWU9LQ"/>
-<p>disponible.</p>
+<p>disponible. <a href="https://www.youtube.com/watch?v=EtUNMJWU9LQ">Video</a></p>
