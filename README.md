@@ -6,13 +6,32 @@
 <p>El visor del ROI se encuentra en /app/client/visor.py, puede dar click aqui para visualizar el archivo <a href='./app/client/visor.py'>link</a></p>
 <br/>
 <h3>Comandos del teclado</h3>
-| Primer encabezado | Segundo encabezado |
-| ------------- | ------------- |
-| ESC  | Cerrar aplicación  |
-| C  | Almacenar una foto para enviarla  |
-| A | Permite visualizar la ultima foto añadida  |
-| E  | Enviar todo el conjunto de imagenes al servidor  |
-| T  | Se usa para añadir imagenes al raw (es necesario modificar la clase por codigo antes de usarlo)  |
+<table>
+  <tr>
+    <th>Tecla</th>
+    <th>Función</th>
+  </tr>
+  <tr>
+    <td>ESC</td>
+    <td>Cerrar aplicación</td>
+  </tr>
+  <tr>
+    <td>C</td>
+    <td>Almacenar una foto para enviarla </td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>Permite visualizar la ultima foto añadida</td>
+  </tr>
+  <tr>
+    <td>E</td>
+    <td>Enviar todo el conjunto de imagenes al servidor</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>Se usa para añadir imagenes al raw (es necesario modificar la clase por codigo antes de usarlo)</td>
+  </tr>
+</table>
 
 <p>El constructor del dataset se encuentra <a href='./dataset_builder.py'>link</a></p>
 <p>El la contrucción de la red neuronal se encuentra en el <a href='./CNN.py'>link</a></p>
